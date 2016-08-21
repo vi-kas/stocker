@@ -1,0 +1,77 @@
+This is a Play application: Stocker
+====================================
+
+
+Controllers
+===========
+
+- StockController.java:
+
+  1. GET     /stockquotes                controllers.StockController.getStocks
+    Shows Stocks from Google Finance API, Retrieves them and Stores in Cassandra.
+
+  2. POST     /buystock                   controllers.StockController.buyStock
+    Buy Stock by giving Number of Stocks you want to buy
+
+
+- HomeController.java:
+
+  Shows how to handle simple HTTP requests.
+
+- AsyncController.java:
+
+  Shows how to do asynchronous programming when handling a request.
+
+- CountController.java:
+
+  Shows how to inject a component into a controller and use the component when
+  handling requests.
+
+Components
+==========
+
+- Module.java:
+
+  Shows how to use Guice to bind all the components needed by your application.
+
+- Counter.java:
+
+  An example of a component that contains state, in this case a simple counter.
+
+- ApplicationTimer.java:
+
+  An example of a component that starts when the application starts and stops
+  when the application stops.
+
+Filters
+=======
+
+- Filters.java:
+
+  Creates the list of HTTP filters used by your application.
+
+- ExampleFilter.java
+
+  A simple filter that adds a header to every response.
+
+Actots
+======
+
+- StockingActor.java
+
+- BuyStockActor.java
+
+- DBActor.java
+
+Util
+====
+
+- CassandraConfigurator
+
+- CassandraSessionProvider
+
+
+Models
+======
+
+Models Basically Request and Response classes.

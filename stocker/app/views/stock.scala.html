@@ -1,0 +1,54 @@
+@(stocks: Array[Stock])
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <title>Stock Application</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+        <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        <script type='text/javascript'>
+            function buyStock(va) {
+                alert("this is an alert: " + );
+            }
+        </script>
+    </head>
+
+    <body>
+    <div style="margin-left:10%;margin-right:10%">
+        <h1>  Stocks Information</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Exchange Name</th>
+                <th>Last Price</th>
+                <th>Last Updated Time</th>
+                <th>Change</th>
+                <th>Change Percent</th>
+                <th>Previous Closed Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @for(stock <- stocks){
+            <tr>
+                <form name="buyStockForm" action="@controllers.routes.StockController.buyStock()" method="post">
+                    <td><input type="hidden" name="ticker" value="@stock.getTicker()">@stock.getTicker()</input></td>
+                    <td>@stock.getExchangeName()</td>
+                    <td><input type="hidden" name="lastPrice" value="@stock.getLastPrice()">@stock.getLastPrice()</td>
+                    <td>@stock.getLastTimestamp()</td>
+                    <td>@stock.getChange()</td>
+                    <td>@stock.getChangePercent()</td>
+                    <td>@stock.getPreviousClosePrice()</td>
+                    <td><input type="number" name="quantity" placeholder="10"></input></td>
+                    <td><button type="submit" class="btn info">Buy</button></td>
+                </form>
+
+            </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>

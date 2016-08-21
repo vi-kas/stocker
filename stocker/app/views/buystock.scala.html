@@ -1,0 +1,45 @@
+@(stock: StockBuyResponse)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stock Application</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+    <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+    </head>
+
+    <body>
+    <div style="margin-left:10%;margin-right:10%">
+        <h1>Thank You For Purchase</h1>
+        <h2>Transaction Information</h2><br/>
+        <table class="table" style="border:none">
+            <tbody>
+                <tr>
+                    <td>Stock: </td>
+                    <td>@stock.getStock().getTicker()</td>
+                </tr>
+                <tr>
+                    <td>Exchange Name: </td>
+                    <td>@stock.getStock().getExchangeName()</td>
+                </tr>
+                <tr>
+                    <td>Quantity: </td>
+                    <td>@stock.getQuantity()</td>
+                </tr>
+                <tr>
+                    <td>Price Per Stock: </td>
+                    <td>@stock.getStock().getLastPrice()</td>
+                </tr>
+                <tr>
+                    <td>Total Price: </td>
+                    <td>@stock.getTotalPrice()</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <br/>
+        <a class="btn info" href="@controllers.routes.StockController.getStocks()" style="width:10%;">Back To Home</a>
+    </div>
+    </body>
+</html>
